@@ -14,7 +14,7 @@ public class NetDevice {
     private String marka;
     private String serialNumber;
     private int numberOfPorts;
-    private String localization;
+    //private String localization;
 
     public Long getId() {
         return id;
@@ -36,9 +36,9 @@ public class NetDevice {
         return numberOfPorts;
     }
 
-    public String getLocalization() {
+    /*public String getLocalization() {
         return localization;
-    }
+    }*/
 
     public void setId(Long id) {
         this.id = id;
@@ -60,7 +60,7 @@ public class NetDevice {
         this.numberOfPorts = numberOfPorts;
     }
 
-    public void setLocalization(String localization) {
+    /*public void setLocalization(String localization) {
         this.localization = localization;
-    }
+    }*/
 }
