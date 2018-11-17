@@ -1,5 +1,7 @@
 package pl.sda.ewidencja.domain.entity;
 
+import pl.sda.ewidencja.domain.enums.Type;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,7 +11,7 @@ public class Computer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Enumerated(EnumType.STRING)
-    private Enum typ;
+    private Type typ;
     private String marka;
     private String serialNumber;
     private String operatingSystem;
@@ -48,7 +50,7 @@ public class Computer {
         this.id = id;
     }
 
-    public void setTyp(Enum typ) {
+    public void setTyp(Type typ) {
         this.typ = typ;
     }
 
