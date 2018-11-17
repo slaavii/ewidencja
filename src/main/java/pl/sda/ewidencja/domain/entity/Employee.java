@@ -11,11 +11,11 @@ public class Employee {
     private String name;
     private String surname;
     private String position;
-    @OneToMany(mappedBy = "computer")
+    @OneToMany(mappedBy = "employee")
     private Set<Computer> computers;
-    @OneToMany(mappedBy = "phones")
+    @OneToMany(mappedBy = "employee")
     private Set<Phone> phones;
-    @OneToMany(mappedBy = "printers")
+    @OneToMany(mappedBy = "employee")
     private Set<Printer> printers;
 
     public Employee(String name, String surname, String position, Set<Computer> computers, Set<Phone> phones, Set<Printer> printers) {
