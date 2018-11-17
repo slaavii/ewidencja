@@ -1,4 +1,4 @@
-package pld.sda.ewidencja;
+package pl.sda.ewidencja;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
