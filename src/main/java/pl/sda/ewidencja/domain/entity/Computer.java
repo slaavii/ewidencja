@@ -15,8 +15,11 @@ public class Computer {
     private String marka;
     private String serialNumber;
     private String operatingSystem;
-    private String localization;
+    // private String localization;
     private String ipAddress;
+    @ManyToOne
+    @JoinColumn(name="computer_id")
+    private Employee employee;
 
     public Long getId() {
         return id;
@@ -38,9 +41,9 @@ public class Computer {
         return operatingSystem;
     }
 
-    public String getLocalization() {
+    /*public String getLocalization() {
         return localization;
-    }
+    }*/
 
     public String getIpAddress() {
         return ipAddress;
@@ -66,9 +69,9 @@ public class Computer {
         this.operatingSystem = operatingSystem;
     }
 
-    public void setLocalization(String localization) {
+    /*public void setLocalization(String localization) {
         this.localization = localization;
-    }
+    }*/
 
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
