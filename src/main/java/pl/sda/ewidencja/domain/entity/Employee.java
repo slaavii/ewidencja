@@ -18,6 +18,18 @@ public class Employee {
     @OneToMany(mappedBy = "printers")
     private Set<Printer> printers;
 
+    public Employee(String name, String surname, String position, Set<Computer> computers, Set<Phone> phones, Set<Printer> printers) {
+        this.name = name;
+        this.surname = surname;
+        this.position = position;
+        this.computers = computers;
+        this.phones = phones;
+        this.printers = printers;
+    }
+
+    public Employee() {
+    }
+
     public Long getId() {
         return id;
     }

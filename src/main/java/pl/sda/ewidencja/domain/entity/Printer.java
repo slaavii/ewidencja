@@ -13,6 +13,16 @@ public class Printer {
     @JoinColumn(name="printer_id")
     private Employee employee;
 
+
+    public Printer(String marka, String serialNumber, Employee employee) {
+        this.marka = marka;
+        this.serialNumber = serialNumber;
+        this.employee = employee;
+    }
+
+    public Printer() {
+    }
+
     public Long getId() {
         return id;
     }

@@ -21,6 +21,18 @@ public class Computer {
     @JoinColumn(name="computer_id")
     private Employee employee;
 
+    public Computer(Type typ, String marka, String serialNumber, String operatingSystem, String ipAddress, Employee employee) {
+        this.typ = typ;
+        this.marka = marka;
+        this.serialNumber = serialNumber;
+        this.operatingSystem = operatingSystem;
+        this.ipAddress = ipAddress;
+        this.employee = employee;
+    }
+
+    public Computer() {
+    }
+
     public Long getId() {
         return id;
     }

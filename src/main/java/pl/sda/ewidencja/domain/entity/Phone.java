@@ -13,6 +13,15 @@ public class Phone {
     @JoinColumn(name="phone_id")
     private Employee employee;
 
+    public Phone(String marka, String serialNumber, Employee employee) {
+        this.marka = marka;
+        this.serialNumber = serialNumber;
+        this.employee = employee;
+    }
+
+    public Phone() {
+    }
+
     public Long getId() {
         return id;
     }

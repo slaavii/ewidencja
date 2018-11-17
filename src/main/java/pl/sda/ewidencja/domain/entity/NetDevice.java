@@ -16,6 +16,17 @@ public class NetDevice {
     private int numberOfPorts;
     //private String localization;
 
+
+    public NetDevice(DeviceType typ, String marka, String serialNumber, int numberOfPorts) {
+        this.typ = typ;
+        this.marka = marka;
+        this.serialNumber = serialNumber;
+        this.numberOfPorts = numberOfPorts;
+    }
+
+    public NetDevice() {
+    }
+
     public Long getId() {
         return id;
     }
