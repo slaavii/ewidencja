@@ -28,6 +28,15 @@ public class ComputerDTO {
     public ComputerDTO() {
     }
 
+    public ComputerDTO(String typ, String marka, String serialNumber, String operatingSystem, String ipAddress, Employee employee) {
+        this.typ = typ;
+        this.marka = marka;
+        this.serialNumber = serialNumber;
+        this.operatingSystem = operatingSystem;
+        this.ipAddress = ipAddress;
+        this.employee = employee;
+    }
+
     public String getTyp() {
         return typ;
     }

@@ -1,6 +1,7 @@
 package pl.sda.ewidencja.domain.dto;
 
 import pl.sda.ewidencja.domain.entity.Computer;
+import pl.sda.ewidencja.domain.entity.Employee;
 import pl.sda.ewidencja.domain.entity.Phone;
 import pl.sda.ewidencja.domain.entity.Printer;
 
@@ -12,10 +13,30 @@ public class EmployeeDTO {
     private String name;
     private String surname;
     private String position;
-    private List<Computer> computers;
-    private List<Phone> phones;
-    private List<Printer> printers;
+    private Set<Computer> computers;
+    private Set<Phone> phones;
+    private Set<Printer> printers;
     private String location;
+
+    public EmployeeDTO(Employee employee) {
+        this(employee.getName(),
+                employee.getSurname(),
+                employee.getPosition(),
+                employee.getComputers(),
+                employee.getPhones(),
+                employee.getPrinters(),
+                employee.getLocation());
+    }
+
+    public EmployeeDTO(String name, String surname, String position, Set<Computer> computers, Set<Phone> phones, Set<Printer> printers, String location) {
+        this.name = name;
+        this.surname = surname;
+        this.position = position;
+        this.computers = computers;
+        this.phones = phones;
+        this.printers = printers;
+        this.location = location;
+    }
 
     public String getName() {
         return name;
@@ -41,27 +62,27 @@ public class EmployeeDTO {
         this.position = position;
     }
 
-    public List<Computer> getComputers() {
+    public Set<Computer> getComputers() {
         return computers;
     }
 
-    public void setComputers(List<Computer> computers) {
+    public void setComputers(Set<Computer> computers) {
         this.computers = computers;
     }
 
-    public List<Phone> getPhones() {
+    public Set<Phone> getPhones() {
         return phones;
     }
 
-    public void setPhones(List<Phone> phones) {
+    public void setPhones(Set<Phone> phones) {
         this.phones = phones;
     }
 
-    public List<Printer> getPrinters() {
+    public Set<Printer> getPrinters() {
         return printers;
     }
 
-    public void setPrinters(List<Printer> printers) {
+    public void setPrinters(Set<Printer> printers) {
         this.printers = printers;
     }
 
