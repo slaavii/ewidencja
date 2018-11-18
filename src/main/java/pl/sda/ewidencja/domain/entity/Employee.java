@@ -17,14 +17,16 @@ public class Employee {
     private Set<Phone> phones;
     @OneToMany(mappedBy = "employee")
     private Set<Printer> printers;
+    private String location;
 
-    public Employee(String name, String surname, String position, Set<Computer> computers, Set<Phone> phones, Set<Printer> printers) {
+    public Employee(String name, String surname, String position, Set<Computer> computers, Set<Phone> phones, Set<Printer> printers, String location) {
         this.name = name;
         this.surname = surname;
         this.position = position;
         this.computers = computers;
         this.phones = phones;
         this.printers = printers;
+        this.location = location;
     }
 
     public Employee() {
@@ -84,5 +86,13 @@ public class Employee {
 
     public void setPrinters(Set<Printer> printers) {
         this.printers = printers;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }
