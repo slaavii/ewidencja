@@ -6,8 +6,5 @@ import pl.sda.ewidencja.repository.EmployeeRepository;
 
 @Service
 public class EmployeeService {
-    private final ComputerRepository computerRepository;
-    private final EmployeeRepository employeeRepository;
-    private
 
 }

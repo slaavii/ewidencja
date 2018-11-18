@@ -46,4 +46,8 @@ public class Printer {
     public void setSerialNumber(String serialNumber) {
         this.serialNumber = serialNumber;
     }
+
+    public Employee getEmployee() {
+        return employee;
+    }
 }

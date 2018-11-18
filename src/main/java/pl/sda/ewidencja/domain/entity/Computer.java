@@ -88,6 +88,10 @@ public class Computer {
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
     }
+
+    public Employee getEmployee() {
+        return employee;
+    }
 }
 
 

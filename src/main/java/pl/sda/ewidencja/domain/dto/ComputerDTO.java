@@ -1,5 +1,6 @@
 package pl.sda.ewidencja.domain.dto;
 
+import pl.sda.ewidencja.domain.entity.Computer;
 import pl.sda.ewidencja.domain.entity.Employee;
 
 public class ComputerDTO {
@@ -9,6 +10,23 @@ public class ComputerDTO {
     private String operatingSystem;
     private String ipAddress;
     private Employee employee;
+
+    public ComputerDTO(Computer computer) {
+        this(computer.getTyp().name(),computer.getMarka(),computer.getSerialNumber(),
+                computer.getOperatingSystem(),computer.getIpAddress(),computer.getEmployee());
+    }
+
+    public ComputerDTO(String typ, String marka, String serialNumber, String operatingSystem, String ipAddress, Employee employee) {
+        this.typ = typ;
+        this.marka = marka;
+        this.serialNumber = serialNumber;
+        this.operatingSystem = operatingSystem;
+        this.ipAddress = ipAddress;
+        this.employee = employee;
+    }
+
+    public ComputerDTO() {
+    }
 
     public String getTyp() {
         return typ;
