@@ -1,5 +1,6 @@
 package pl.sda.ewidencja.domain.entity;
 
+import pl.sda.ewidencja.domain.dto.ComputerDTO;
 import pl.sda.ewidencja.domain.enums.Type;
 
 import javax.persistence.*;
@@ -31,6 +32,9 @@ public class Computer {
     }
 
     public Computer() {
+    }
+    public Computer(ComputerDTO dto) {
+        this(Type.valueOf(dto.getTyp()),dto.getMarka(),dto.getSerialNumber(),dto.getOperatingSystem(),dto.getIpAddress(),null);
     }
 
     public Long getId() {

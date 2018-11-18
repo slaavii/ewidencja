@@ -16,15 +16,6 @@ public class ComputerDTO {
                 computer.getOperatingSystem(),computer.getIpAddress(),computer.getEmployee());
     }
 
-    public ComputerDTO(String typ, String marka, String serialNumber, String operatingSystem, String ipAddress, Employee employee) {
-        this.typ = typ;
-        this.marka = marka;
-        this.serialNumber = serialNumber;
-        this.operatingSystem = operatingSystem;
-        this.ipAddress = ipAddress;
-        this.employee = employee;
-    }
-
     public ComputerDTO() {
     }
 
