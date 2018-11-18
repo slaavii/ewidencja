@@ -4,9 +4,6 @@ import pl.sda.ewidencja.domain.entity.Computer;
 import pl.sda.ewidencja.domain.entity.Employee;
 import pl.sda.ewidencja.domain.entity.Phone;
 import pl.sda.ewidencja.domain.entity.Printer;
-
-import javax.persistence.OneToMany;
-import java.util.List;
 import java.util.Set;
 
 public class EmployeeDTO {

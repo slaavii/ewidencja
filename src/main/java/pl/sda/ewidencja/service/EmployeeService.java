@@ -8,6 +8,14 @@ import pl.sda.ewidencja.repository.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import pl.sda.ewidencja.domain.dto.EmployeeDTO;
+import pl.sda.ewidencja.domain.entity.Employee;
+import pl.sda.ewidencja.repository.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
+import pl.sda.ewidencja.repository.ComputerRepository;
+import pl.sda.ewidencja.repository.EmployeeRepository;
 
 @Service
 public class EmployeeService {
