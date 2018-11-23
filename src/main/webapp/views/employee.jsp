@@ -13,9 +13,11 @@
     <tr>
         <td>Imię</td>
         <td>Nazwisko</td>
-        <td>Kiedy</td>
-        <td>Czym placone</td>
-        <td>Szczegoly</td>
+        <td>Stanowisko</td>
+        <td>Komputer</td>
+        <td>Telefon</td>
+        <td>Drukarka</td>
+        <td>Lokalizacja</td>
         <td></td>
     </tr>
     </thead>
@@ -30,14 +32,14 @@
             <td>${employee.phones}</td>
             <td>${employee.printers}</td>
             <td>${employee.location}</td>
-            <td><a href="${pageContext.servletContext.contextPath}/cost/${cost.id}">Przejdz</a></td>
-            <td><a href="${pageContext.servletContext.contextPath}/cost/delete?costId=${cost.id}">Usun</a></td>
+            <td><a href="${pageContext.servletContext.contextPath}/cost/${cost.id}">Przejdź</a></td>
+            <td><a href="${pageContext.servletContext.contextPath}/cost/delete?costId=${cost.id}">Usuń</a></td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
 
-<a href="${pageContext.servletContext.contextPath}/cost/add">Dodaj wydatek</a>
+<a href="${pageContext.servletContext.contextPath}/employeeAdd">Dodaj pozycję</a>
 
 </body>
 </html>
