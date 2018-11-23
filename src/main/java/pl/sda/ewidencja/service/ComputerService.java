@@ -26,7 +26,8 @@ public class ComputerService {
 
     public ComputerDTO getComputerBySerialNumber(String serialNumber) {
         return computerRepository.findBySerialNumber(serialNumber)
-                .map(ComputerDTO::new).orElse(null);
+                .map(ComputerDTO::new)
+                .orElse(null);
     }
 
     public void addComp(ComputerDTO computerDTO_form) {

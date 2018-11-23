@@ -4,6 +4,8 @@ import pl.sda.ewidencja.domain.entity.Computer;
 import pl.sda.ewidencja.domain.entity.Employee;
 import pl.sda.ewidencja.domain.entity.Phone;
 import pl.sda.ewidencja.domain.entity.Printer;
+
+import java.awt.*;
 import java.util.Set;
 
 public class EmployeeDTO {
@@ -34,6 +36,10 @@ public class EmployeeDTO {
         this.printers = printers;
         this.location = location;
     }
+
+    public EmployeeDTO() {
+    }
+
 
     public String getName() {
         return name;

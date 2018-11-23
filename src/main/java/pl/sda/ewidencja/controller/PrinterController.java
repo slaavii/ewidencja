@@ -13,9 +13,9 @@ import java.util.Set;
 @Controller
 @RequestMapping("/printer")
 public class PrinterController {
-    private final PrinterController printerController;
-
-    public PrinterController(PrinterController printerController){
-    this.printerController=printerController;}
+//    private final PrinterController printerController;
+//
+//    public PrinterController(PrinterController printerController) {
+//    this.printerController=printerController;}
 }
 
