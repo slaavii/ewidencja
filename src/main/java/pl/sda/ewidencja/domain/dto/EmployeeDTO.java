@@ -4,11 +4,10 @@ import pl.sda.ewidencja.domain.entity.Computer;
 import pl.sda.ewidencja.domain.entity.Employee;
 import pl.sda.ewidencja.domain.entity.Phone;
 import pl.sda.ewidencja.domain.entity.Printer;
-
-import java.awt.*;
 import java.util.Set;
 
 public class EmployeeDTO {
+    private Long id;
     private String name;
     private String surname;
     private String position;
@@ -18,7 +17,8 @@ public class EmployeeDTO {
     private String location;
 
     public EmployeeDTO(Employee employee) {
-        this(employee.getName(),
+        this(   employee.getId(),
+                employee.getName(),
                 employee.getSurname(),
                 employee.getPosition(),
                 employee.getComputers(),
@@ -27,7 +27,8 @@ public class EmployeeDTO {
                 employee.getLocation());
     }
 
-    public EmployeeDTO(String name, String surname, String position, Set<Computer> computers, Set<Phone> phones, Set<Printer> printers, String location) {
+    public EmployeeDTO(Long id,String name, String surname, String position, Set<Computer> computers, Set<Phone> phones, Set<Printer> printers, String location) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.position = position;
@@ -40,6 +41,13 @@ public class EmployeeDTO {
     public EmployeeDTO() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

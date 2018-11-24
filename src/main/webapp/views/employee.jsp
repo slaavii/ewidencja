@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Employee</title>
+    <title>Ewidencja App</title>
     <link href="${pageContext.servletContext.contextPath}/css/app.css" rel="stylesheet"></head>
 </head>
 <body>
@@ -11,6 +11,7 @@
 <table>
     <thead>
     <tr>
+        <td>ID</td>
         <td>Imię</td>
         <td>Nazwisko</td>
         <td>Stanowisko</td>
@@ -22,6 +23,7 @@
         <td></td>
         <td></td>
         <td></td>
+        <td></td>
 
     </tr>
     </thead>
@@ -29,6 +31,7 @@
 
     <c:forEach items="${employee}" var="employee">
         <tr>
+            <td>${employee.id}</td>
             <td>${employee.name}</td>
             <td>${employee.surname}</td>
             <td>${employee.position}</td>
@@ -36,10 +39,10 @@
             <td>${employee.phones}</td>
             <td>${employee.printers}</td>
             <td>${employee.location}</td>
-            <td><a href="${pageContext.servletContext.contextPath}/computer/add/${cost.id}">Dodaj komputer</a></td>
-            <td><a href="${pageContext.servletContext.contextPath}/phone/add${cost.id}">Dodaj telefon</a></td>
-            <td><a href="${pageContext.servletContext.contextPath}/printer/add${cost.id}">Dodaj drukarkę</a></td>
-            <td><a href="${pageContext.servletContext.contextPath}/cost/delete?costId=${cost.id}">Usuń pracownika</a></td>
+            <td><a href="${pageContext.servletContext.contextPath}/computer/add/${employee.id}">Dodaj komputer</a></td>
+            <td><a href="${pageContext.servletContext.contextPath}/phone/add${employee.id}">Dodaj telefon</a></td>
+            <td><a href="${pageContext.servletContext.contextPath}/printer/add${employee.id}">Dodaj drukarkę</a></td>
+            <td><a href="${pageContext.servletContext.contextPath}/employee/delete?employeeId=${employee.id}">Usuń pracownika</a></td>
         </tr>
     </c:forEach>
     </tbody>

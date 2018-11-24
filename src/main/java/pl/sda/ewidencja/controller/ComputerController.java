@@ -30,36 +30,20 @@ public class ComputerController {
         return "addComputer";
     }
 
-    @PostMapping(value = "computer/add")
-    public String saveComp(@ModelAttribute("newComp") ComputerDTO form,
+    @GetMapping("/add")
+    public String addCost(Model model) {
+        model.addAttribute("newComputer", new ComputerDTO());
+        return "computerEdit";
+    }
+
+    @PostMapping("/add")
+    public String saveCost(@ModelAttribute("newComputer") ComputerDTO form,
                            BindingResult result, Model model) {
+
         if (!result.hasErrors()) {
             computerService.addComp(form);
         }
-        return "redirect:../computer";
+
+        return "redirect:../employee";
     }
-
-    /*@GetMapping(value = "cost/add")
-    public String addCost(Model model) {
-        model.addAttribute("newCost", new NewCostDto());
-        return "edit";
-    }
-
-    @PostMapping(value = "cost/add")
-    public String saveCost(@ModelAttribute("newCost") NewCostDto form,
-                           BindingResult result, Model model) {
-
-        if (!result.hasErrors()) {
-            service.addCost(form);
-        }
-
-        return "redirect:../costs";
-    }*/
-
-    /*@PutMapping("/create")
-    @ResponseBody
-    public IdDTO create(@ResponseBody ComputerDTO dto){
-    }*/
-
-
 }
