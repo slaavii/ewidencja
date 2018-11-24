@@ -5,8 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.ewidencja.domain.dto.ComputerDTO;
+import pl.sda.ewidencja.domain.enums.Type;
 import pl.sda.ewidencja.service.ComputerService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -24,20 +26,17 @@ public class ComputerController {
         return computerService.getAll();
     }
 
-    @GetMapping(value = "computer/add")
-    public String addComp(Model model) {
-        model.addAttribute("newComp", new ComputerDTO());
-        return "addComputer";
-    }
 
-    @GetMapping("/add")
-    public String addCost(Model model) {
+    @GetMapping("/add/{id}")
+    public String addComp(Model model, @PathVariable("id") Long employeeId) {
         model.addAttribute("newComputer", new ComputerDTO());
+        model.addAttribute("employeeId", employeeId);
+        model.addAttribute("types", Type.values());
         return "computerEdit";
     }
 
     @PostMapping("/add")
-    public String saveCost(@ModelAttribute("newComputer") ComputerDTO form,
+    public String saveComp(@Valid @ModelAttribute("newComputer") ComputerDTO form,
                            BindingResult result, Model model) {
 
         if (!result.hasErrors()) {

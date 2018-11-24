@@ -4,22 +4,24 @@ import pl.sda.ewidencja.domain.entity.Computer;
 import pl.sda.ewidencja.domain.entity.Employee;
 
 public class ComputerDTO {
-    private String typ;
+    private Long id;
+    private Enum typ;
     private String marka;
     private String serialNumber;
     private String operatingSystem;
     private String ipAddress;
-    private Employee employee;
+    private EmployeeDTO employee;
 
-    public ComputerDTO(Computer computer) {
-        this(computer.getTyp().name(),computer.getMarka(),computer.getSerialNumber(),
-                computer.getOperatingSystem(),computer.getIpAddress(),computer.getEmployee());
-    }
+//    public ComputerDTO(Computer computer) {
+//        this(computer.getId(),computer.getTyp(),computer.getMarka(),computer.getSerialNumber(),
+//                computer.getOperatingSystem(),computer.getIpAddress(),computer.getEmployee());
+//    }
 
     public ComputerDTO() {
     }
 
-    public ComputerDTO(String typ, String marka, String serialNumber, String operatingSystem, String ipAddress, Employee employee) {
+    public ComputerDTO(Long id, Enum typ, String marka, String serialNumber, String operatingSystem, String ipAddress, EmployeeDTO employee) {
+        this.id = id;
         this.typ = typ;
         this.marka = marka;
         this.serialNumber = serialNumber;
@@ -28,11 +30,28 @@ public class ComputerDTO {
         this.employee = employee;
     }
 
-    public String getTyp() {
+    public ComputerDTO(Long id, Enum typ, String marka, String serialNumber, String operatingSystem, String ipAddress) {
+        this.id = id;
+        this.typ = typ;
+        this.marka = marka;
+        this.serialNumber = serialNumber;
+        this.operatingSystem = operatingSystem;
+        this.ipAddress = ipAddress;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Enum getTyp() {
         return typ;
     }
 
-    public void setTyp(String typ) {
+    public void setTyp(Enum typ) {
         this.typ = typ;
     }
 
@@ -68,11 +87,11 @@ public class ComputerDTO {
         this.ipAddress = ipAddress;
     }
 
-    public Employee getEmployee() {
+    public EmployeeDTO getEmployee() {
         return employee;
     }
 
-    public void setEmployee(Employee employee) {
+    public void setEmployee(EmployeeDTO employee) {
         this.employee = employee;
     }
 }

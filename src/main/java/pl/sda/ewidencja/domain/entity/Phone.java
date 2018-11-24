@@ -10,7 +10,7 @@ public class Phone {
     private String marka;
     private String serialNumber;
     @ManyToOne
-    @JoinColumn(name="phone_id")
+    @JoinColumn(name="employee_id")
     private Employee employee;
 
     public Phone(String marka, String serialNumber, Employee employee) {

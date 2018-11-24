@@ -10,7 +10,7 @@ public class Printer {
     private String marka;
     private String serialNumber;
     @ManyToOne
-    @JoinColumn(name="printer_id")
+    @JoinColumn(name="employee_id")
     private Employee employee;
 
 

@@ -20,18 +20,28 @@ public class ComputerService {
 
     public List<ComputerDTO> getAll() {
         return computerRepository.findAll().stream()
-                .map(ComputerDTO::new)
+                .map(com->new ComputerDTO(com.getId(),
+                        com.getTyp(),com.getMarka(),
+                        com.getSerialNumber(),
+                        com.getOperatingSystem(),
+                        com.getIpAddress()))
                 .collect(Collectors.toList());
     }
 
     public ComputerDTO getComputerBySerialNumber(String serialNumber) {
         return computerRepository.findBySerialNumber(serialNumber)
-                .map(ComputerDTO::new)
+                .map(com->new ComputerDTO(com.getId(),
+                        com.getTyp(),com.getMarka(),
+                        com.getSerialNumber(),
+                        com.getOperatingSystem(),
+                        com.getIpAddress()))
                 .orElse(null);
     }
 
     public void addComp(ComputerDTO computerDTO_form) {
-        this.computerRepository.save(new Computer(computerDTO_form));
+        computerRepository.save(new Computer(computerDTO_form));
+       // employeeRepository.findById()
+
     }
 
 }

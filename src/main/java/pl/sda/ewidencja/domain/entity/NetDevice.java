@@ -14,8 +14,6 @@ public class NetDevice {
     private String marka;
     private String serialNumber;
     private int numberOfPorts;
-    //private String localization;
-
 
     public NetDevice(DeviceType typ, String marka, String serialNumber, int numberOfPorts) {
         this.typ = typ;
