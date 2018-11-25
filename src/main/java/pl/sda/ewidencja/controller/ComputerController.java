@@ -36,13 +36,14 @@ public class ComputerController {
         return "computerEdit";
     }
 
-    @PostMapping("/add")
-    public String saveComp(@ModelAttribute("newComputer") ComputerDTO form,
+    @PostMapping("/edited/{employeeId}")
+    public String saveComp(@PathVariable("employeeId") Long employeeId, @ModelAttribute("newComputer") ComputerDTO form,
                            BindingResult result, Model model) {
 
         if (!result.hasErrors()) {
-            computerService.addComp(form);
+            computerService.addComp(form, employeeId);
+
         }
-        return "redirect:../employee/list";
+        return "redirect:/employee/list";
     }
 }

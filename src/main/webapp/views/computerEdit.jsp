@@ -9,7 +9,7 @@
 <jsp:include page="menu.jsp" />
 Użytkownik id: ${employeeId}<br>
 Dodaj/edytuj komputer:
-<form:form action="/computer/add" modelAttribute="newComputer" method="post">
+<form:form action="/computer/edited/${employeeId}" modelAttribute="newComputer" method="post">
 
     <%--<form:hidden path="id"></form:hidden>--%>
     <form:label path="typ">Typ komputera:</form:label>

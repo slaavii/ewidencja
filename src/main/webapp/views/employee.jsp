@@ -35,7 +35,7 @@
             <td>${employee.name}</td>
             <td>${employee.surname}</td>
             <td>${employee.position}</td>
-            <td>${employee.computers}</td>
+            <td><a href="/computer/list">${employee.computers.size()}</a></td>
             <td>${employee.phones}</td>
             <td>${employee.printers}</td>
             <td>${employee.location}</td>

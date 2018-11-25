@@ -3,6 +3,7 @@ package pl.sda.ewidencja.service;
 import org.springframework.stereotype.Service;
 import pl.sda.ewidencja.domain.dto.ComputerDTO;
 import pl.sda.ewidencja.domain.entity.Computer;
+import pl.sda.ewidencja.domain.entity.Employee;
 import pl.sda.ewidencja.repository.ComputerRepository;
 import pl.sda.ewidencja.repository.EmployeeRepository;
 import java.util.List;
@@ -38,10 +39,13 @@ public class ComputerService {
                 .orElse(null);
     }
 
-    public void addComp(ComputerDTO computerDTO_form) {
-        computerRepository.save(new Computer(computerDTO_form));
-       // employeeRepository.findById()
+    //@Transactional
+    public void addComp(ComputerDTO computerDTO_form, Long employeeId) {
+        Employee employeeRepositoryById = employeeRepository.findById(employeeId).orElse(null);
 
+        Computer computer = new Computer(computerDTO_form);
+        computer.setEmployee(employeeRepositoryById);
+        computerRepository.save(computer);
     }
 
 }
