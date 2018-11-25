@@ -8,15 +8,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 public class PrinterDTO {
+    private Long id;
     private String marka;
     private String serialNumber;
     private Employee employee;
 
     public PrinterDTO(Printer printer) {
-        this(printer.getMarka(),printer.getSerialNumber(),printer.getEmployee());
+        this(printer.getId(),printer.getMarka(),printer.getSerialNumber(),printer.getEmployee());
     }
 
-    public PrinterDTO(String marka, String serialNumber, Employee employee) {
+    public PrinterDTO(Long id,String marka, String serialNumber, Employee employee) {
+        this.id = id;
         this.marka = marka;
         this.serialNumber = serialNumber;
         this.employee = employee;
@@ -25,6 +27,10 @@ public class PrinterDTO {
     public PrinterDTO() {
 
     }
+
+    public Long getId() { return id; }
+
+    public void setId(Long id) { this.id = id; }
 
     public String getMarka() {
         return marka;

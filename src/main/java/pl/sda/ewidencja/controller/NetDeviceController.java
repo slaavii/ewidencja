@@ -6,7 +6,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pl.sda.ewidencja.domain.dto.NetDeviceDTO;
-import pl.sda.ewidencja.domain.dto.PrinterDTO;
 import pl.sda.ewidencja.service.NetDeviceService;
 
 import java.util.List;

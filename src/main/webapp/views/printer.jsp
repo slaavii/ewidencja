@@ -13,8 +13,9 @@
     <tr>
         <td>ID</td>
         <td>Marka</td>
-        <td>SerialNumber</td>
+        <td>Pracownik</td>
         <td></td>
+
 
     </tr>
     </thead>
@@ -24,8 +25,8 @@
         <tr>
             <td>${printer.id}</td>
             <td>${printer.marka}</td>
-            <td>${printer.employee}</td>
-            <td><a href="${pageContext.servletContext.contextPath}/printer/add/${printer.id}">Dodaj drukarkę</a></td>
+            <td>${printer.employee.name}</td>
+            <%--<td><a href="${pageContext.servletContext.contextPath}/printer/add/${printer.id}">Dodaj drukarkę</a></td>--%>
             <td><a href="${pageContext.servletContext.contextPath}/printer/delete?printerId=${employee.id}">Usuń pracownika</a></td>
         </tr>
     </c:forEach>

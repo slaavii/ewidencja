@@ -22,7 +22,6 @@ public class PhoneDTO {
     }
 
     public PhoneDTO() {
-
     }
 
     public String getMarka() {
