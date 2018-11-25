@@ -7,14 +7,15 @@
     <link href="${pageContext.servletContext.contextPath}/css/app.css" rel="stylesheet"></head>
 <body>
 <jsp:include page="menu.jsp" />
+Użytkownik id: ${employeeId}<br>
 Dodaj/edytuj komputer:
-<form:form action="add" modelAttribute="newComputer" method="POST">
-    <form:input type="hidden" path="id"/><br>
-    <%--<form:label path="typ">Typ komputera:</form:label>--%>
-    <%--<form:input path="typ"/><br>--%>
+<form:form action="/computer/add" modelAttribute="newComputer" method="post">
+
+    <%--<form:hidden path="id"></form:hidden>--%>
+    <form:label path="typ">Typ komputera:</form:label>
     <form:select path="typ">
-        <form:options items="${types}"/>
-    </form:select>
+        <form:options items="${typ}"/>
+    </form:select><br>
     <form:label path="marka">Marka komputera:</form:label>
     <form:input path="marka"/><br>
     <form:label path="serialNumber">Numer seryjny:</form:label>
@@ -23,8 +24,8 @@ Dodaj/edytuj komputer:
     <form:input path="operatingSystem"/><br>
     <form:label path="ipAddress">Adres ip:</form:label>
     <form:input path="ipAddress"/><br>
-
-    <input type="submit" name="apply" value="Zatwierdz"/>
+    <%--<form:hidden path="employee" value="${employeeId}"></form:hidden>--%>
+    <input type="submit" value="Zatwierdz"/>
 </form:form>
 </body>
 </html>

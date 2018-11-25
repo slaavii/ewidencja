@@ -1,5 +1,6 @@
 package pl.sda.ewidencja.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -31,18 +32,17 @@ public class ComputerController {
     public String addComp(Model model, @PathVariable("id") Long employeeId) {
         model.addAttribute("newComputer", new ComputerDTO());
         model.addAttribute("employeeId", employeeId);
-        model.addAttribute("types", Type.values());
+        //model.addAttribute("types", Type.values());
         return "computerEdit";
     }
 
     @PostMapping("/add")
-    public String saveComp(@Valid @ModelAttribute("newComputer") ComputerDTO form,
+    public String saveComp(@ModelAttribute("newComputer") ComputerDTO form,
                            BindingResult result, Model model) {
 
         if (!result.hasErrors()) {
             computerService.addComp(form);
         }
-
-        return "redirect:../employee";
+        return "redirect:../employee/list";
     }
 }

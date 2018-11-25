@@ -41,7 +41,7 @@ public class Computer {
         return id;
     }
 
-    public Enum getTyp() {
+    public Type getTyp() {
         return typ;
     }
 
