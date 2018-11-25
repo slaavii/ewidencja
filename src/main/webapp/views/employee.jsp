@@ -7,7 +7,7 @@
 </head>
 <body>
 <jsp:include page="menu.jsp" />
-
+<h1>Tabela pracowników</h1>
 <table>
     <thead>
     <tr>
@@ -48,7 +48,7 @@
     </tbody>
 </table>
 
-<a href="${pageContext.servletContext.contextPath}/employeeAdd">Dodaj pozycję</a>
+<a href="${pageContext.servletContext.contextPath}/employee/employeeAdd">Dodaj pozycję</a>
 
 </body>
 </html>

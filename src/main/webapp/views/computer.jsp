@@ -7,7 +7,7 @@
 </head>
 <body>
 <jsp:include page="menu.jsp" />
-
+<h1>Tabela komputerów</h1>
 <table>
     <thead>
     <tr>

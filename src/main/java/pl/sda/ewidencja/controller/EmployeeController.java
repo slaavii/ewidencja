@@ -6,11 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import pl.sda.ewidencja.domain.dto.ComputerDTO;
 import pl.sda.ewidencja.domain.dto.EmployeeDTO;
 import pl.sda.ewidencja.service.EmployeeService;
-
-import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Controller
@@ -36,4 +33,21 @@ public class EmployeeController {
         mav.addObject("employee", service.getAll());
         return mav;
     }
+
+    @GetMapping("/employeeAdd")
+    public String addComp(Model model) {
+        model.addAttribute("newEmployee", new EmployeeDTO());
+        return "employeeEdit";
+    }
+
+    @PostMapping("/editedEmployee")
+    public String saveComp(@ModelAttribute("newEmployee") EmployeeDTO form,
+                           BindingResult result, Model model) {
+
+        if (!result.hasErrors()) {
+            service.addEmployee(form);
+        }
+        return "redirect:/employee/list";
+    }
+
 }

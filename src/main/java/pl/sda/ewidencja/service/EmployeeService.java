@@ -2,9 +2,10 @@ package pl.sda.ewidencja.service;
 
 import org.springframework.stereotype.Service;
 import pl.sda.ewidencja.domain.dto.EmployeeDTO;
-import pl.sda.ewidencja.domain.entity.Employee;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import pl.sda.ewidencja.domain.entity.Employee;
 import pl.sda.ewidencja.repository.EmployeeRepository;
 
 @Service
@@ -32,6 +33,12 @@ public class EmployeeService {
         return employeeRepository.findByLocation(location)
                 .map(EmployeeDTO::new)
                 .orElse(null);
+    }
+
+    public void addEmployee(EmployeeDTO employeeDTO) {
+        Employee employee = new Employee(employeeDTO.getName(),employeeDTO.getSurname(),employeeDTO.getPosition(),
+                employeeDTO.getLocation());
+        employeeRepository.save(employee);
     }
 
 }

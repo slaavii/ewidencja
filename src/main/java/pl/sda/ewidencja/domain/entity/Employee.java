@@ -32,6 +32,13 @@ public class Employee {
     public Employee() {
     }
 
+    public Employee(String name, String surname, String position, String location) {
+        this.name = name;
+        this.surname = surname;
+        this.position = position;
+        this.location = location;
+    }
+
     public Long getId() {
         return id;
     }
