@@ -64,6 +64,7 @@ public class ComputerController {
         }
         return "redirect:/employee/list";
     }
+
     @GetMapping(value = "/delete")
     public String deleteComp(@RequestParam(name = "computerId") String id) {
         computerService.deleteComp(Long.valueOf(id));
