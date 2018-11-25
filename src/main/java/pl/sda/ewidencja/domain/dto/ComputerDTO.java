@@ -97,16 +97,4 @@ public class ComputerDTO {
         this.employee = employee;
     }
 
-    @Override
-    public String toString() {
-        return "ComputerDTO{" +
-                "id=" + id +
-                ", typ=" + typ +
-                ", marka='" + marka + '\'' +
-                ", serialNumber='" + serialNumber + '\'' +
-                ", operatingSystem='" + operatingSystem + '\'' +
-                ", ipAddress='" + ipAddress + '\'' +
-                ", employee=" + employee +
-                '}';
-    }
 }

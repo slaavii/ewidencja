@@ -63,10 +63,6 @@ public class Computer {
         return operatingSystem;
     }
 
-    /*public String getLocalization() {
-        return localization;
-    }*/
-
     public String getIpAddress() {
         return ipAddress;
     }
@@ -90,10 +86,6 @@ public class Computer {
     public void setOperatingSystem(String operatingSystem) {
         this.operatingSystem = operatingSystem;
     }
-
-    /*public void setLocalization(String localization) {
-        this.localization = localization;
-    }*/
 
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;

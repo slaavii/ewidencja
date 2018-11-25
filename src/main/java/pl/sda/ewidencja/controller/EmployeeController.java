@@ -43,11 +43,9 @@ public class EmployeeController {
     @PostMapping("/editedEmployee")
     public String saveComp(@ModelAttribute("newEmployee") EmployeeDTO form,
                            BindingResult result, Model model) {
-
         if (!result.hasErrors()) {
             service.addEmployee(form);
         }
         return "redirect:/employee/list";
     }
-
 }

@@ -53,7 +53,6 @@ public class ComputerController {
     public String addCompOne(Model model, @PathVariable("id") Long employeeId) {
         model.addAttribute("newComputer", new ComputerDTO());
         model.addAttribute("employeeId", employeeId);
-        //model.addAttribute("types", Type.values());
         return "computerEdit";
     }
 
