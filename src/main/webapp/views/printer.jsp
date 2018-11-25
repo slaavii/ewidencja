@@ -15,10 +15,6 @@
         <td>Marka</td>
         <td>SerialNumber</td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
 
     </tr>
     </thead>
@@ -30,7 +26,6 @@
             <td>${printer.marka}</td>
             <td>${printer.employee}</td>
             <td><a href="${pageContext.servletContext.contextPath}/printer/add/${printer.id}">Dodaj drukarkę</a></td>
-
             <td><a href="${pageContext.servletContext.contextPath}/printer/delete?printerId=${employee.id}">Usuń pracownika</a></td>
         </tr>
     </c:forEach>
