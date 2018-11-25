@@ -2,6 +2,7 @@ package pl.sda.ewidencja.service;
 
 import org.springframework.stereotype.Service;
 import pl.sda.ewidencja.domain.dto.ComputerDTO;
+import pl.sda.ewidencja.domain.dto.EmployeeDTO;
 import pl.sda.ewidencja.domain.entity.Computer;
 import pl.sda.ewidencja.domain.entity.Employee;
 import pl.sda.ewidencja.repository.ComputerRepository;
@@ -21,23 +22,13 @@ public class ComputerService {
 
     public List<ComputerDTO> getAll() {
         return computerRepository.findAll().stream()
-                .map(com->new ComputerDTO(
-                        com.getId(),
-                        com.getTyp(),com.getMarka(),
-                        com.getSerialNumber(),
-                        com.getOperatingSystem(),
-                        com.getIpAddress()))
+                .map(ComputerDTO::new)
                 .collect(Collectors.toList());
     }
 
     public ComputerDTO getComputerBySerialNumber(String serialNumber) {
         return computerRepository.findBySerialNumber(serialNumber)
-                .map(com->new ComputerDTO(
-                        com.getId(),
-                        com.getTyp(),com.getMarka(),
-                        com.getSerialNumber(),
-                        com.getOperatingSystem(),
-                        com.getIpAddress()))
+                .map(ComputerDTO::new)
                 .orElse(null);
     }
 

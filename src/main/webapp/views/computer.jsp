@@ -34,7 +34,6 @@
             <td>${computer.ipAddress}</td>
             <td>${computer.employee.name}&nbsp${computer.employee.surname}</td>
 
-
             <td><a href="${pageContext.servletContext.contextPath}/computer/add/${computer.id}">Dodaj komputer</a></td>
             <td><a href="${pageContext.servletContext.contextPath}/computer/delete?computerId=${computer.id}">Usuń komputer</a></td>
         </tr>

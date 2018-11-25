@@ -1,7 +1,6 @@
 package pl.sda.ewidencja.domain.dto;
 
 import pl.sda.ewidencja.domain.entity.Computer;
-import pl.sda.ewidencja.domain.entity.Employee;
 import pl.sda.ewidencja.domain.enums.Type;
 
 public class ComputerDTO {
@@ -15,19 +14,22 @@ public class ComputerDTO {
 
     public ComputerDTO(Computer computer) {
         this(computer.getId(),computer.getTyp(),computer.getMarka(),computer.getSerialNumber(),
-                computer.getOperatingSystem(),computer.getIpAddress());
+                computer.getOperatingSystem(),computer.getIpAddress(),
+                computer.getEmployee() == null ? null : new EmployeeDTO(computer.getEmployee()));
     }
 
     public ComputerDTO() {
     }
 
-    public ComputerDTO(Long id, Type typ, String marka, String serialNumber, String operatingSystem, String ipAddress) {
+    public ComputerDTO(Long id, Type typ, String marka, String serialNumber, String operatingSystem, String ipAddress, EmployeeDTO employee) {
         this.id = id;
         this.typ = typ;
         this.marka = marka;
         this.serialNumber = serialNumber;
         this.operatingSystem = operatingSystem;
         this.ipAddress = ipAddress;
+        this.employee = employee;
+
     }
 
     public Long getId() {
