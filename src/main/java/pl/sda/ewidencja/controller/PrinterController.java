@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import pl.sda.ewidencja.domain.dto.ComputerDTO;
 import pl.sda.ewidencja.domain.dto.PhoneDTO;
 import pl.sda.ewidencja.domain.dto.PrinterDTO;
@@ -23,11 +24,19 @@ public class PrinterController {
         this.printerService = printerService;
     }
 
-    @GetMapping("/list")
+    @GetMapping("/listAll")
     @ResponseBody
     public List<PrinterDTO> list() {
         return printerService.getAll();
     }
+
+    @GetMapping("/list")
+    public ModelAndView printerList(){
+        ModelAndView mav = new ModelAndView("printer");
+        mav.addObject("printer",printerService.getAll());
+        return mav;
+    }
+    
 
     @GetMapping(value = "printer/add")
     public String addPhone(Model model) {

@@ -29,30 +29,3 @@ public class NetDeviceService {
     public void addNetDevice(NetDeviceDTO form) {
     }
 }
-/*@Service
-public class PhoneService {
-    private final PhoneRepository phoneRepository;
-
-    public PhoneService(PhoneRepository phoneRepository, EmployeeRepository employeeRepository) {
-        this.phoneRepository = phoneRepository;
-        this.employeeRepository = employeeRepository;
-    }
-
-    private final EmployeeRepository employeeRepository;
-
-    public List<PhoneDTO>getAll(){
-        return phoneRepository.findAll().stream()
-                .map(PhoneDTO::new)
-                .collect(Collectors.toList());
-    }
-
-    public PhoneDTO getPhoneBySerialNumber(String serialNumber){
-        return phoneRepository.findBySerialNumber(serialNumber)
-                .map(PhoneDTO::new)
-                .orElse(null);
-    }
-
-    public void addPhone(PhoneDTO phoneDTO_form){
-        this.phoneRepository.save(new Phone(phoneDTO_form));
-    }
-}*/

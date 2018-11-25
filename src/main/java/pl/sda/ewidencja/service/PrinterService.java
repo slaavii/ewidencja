@@ -39,27 +39,3 @@ public class PrinterService {
     }*/
 }
 
-
-/*
-@Service
-public class ComputerService {
-    private final ComputerRepository computerRepository;
-    private final EmployeeRepository employeeRepository;
-
-    public ComputerService(ComputerRepository computerRepository, EmployeeRepository employeeRepository){
-        this.computerRepository = computerRepository;
-        this.employeeRepository = employeeRepository;}
-
-    public List<ComputerDTO> getAll(){
-        return computerRepository.findAll().stream()
-                .map(ComputerDTO::new)
-                .collect(Collectors.toList());}
-
-    public Computer getComputerBySerialNumber(String serialNumer){
-        return computerRepository.findBySerialNumber(serialNumer).orElse(null);
-    }
-
-    public Set<ComputerDTO> list() {
-        return null;
-    }
-}*/

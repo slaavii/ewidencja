@@ -34,16 +34,4 @@ public class EmployeeService {
                 .orElse(null);
     }
 
-//    public void addEmployee(EmployeeDTO employeeDTO) {
-//        Employee employee = new Employee(employeeDTO.getName(),
-//                employeeDTO.getSurname(),
-//                employeeDTO.getPosition(),
-//                null,
-//                null,
-//                null,
-//                employeeDTO.getLocation());
-//        employeeRepository.save(employee);
-//
-//    }
-
 }
