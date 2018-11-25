@@ -13,25 +13,16 @@ public class ComputerDTO {
     private String ipAddress;
     private EmployeeDTO employee;
 
-//    public ComputerDTO(Computer computer) {
-//        this(computer.getId(),computer.getTyp(),computer.getMarka(),computer.getSerialNumber(),
-//                computer.getOperatingSystem(),computer.getIpAddress(),computer.getEmployee());
-//    }
+    public ComputerDTO(Computer computer) {
+        this(computer.getId(),computer.getTyp().name(),computer.getMarka(),computer.getSerialNumber(),
+                computer.getOperatingSystem(),computer.getIpAddress(),computer.getEmployee());
+    }
 
     public ComputerDTO() {
     }
 
-//    public ComputerDTO(Long id, Type typ, String marka, String serialNumber, String operatingSystem, String ipAddress, EmployeeDTO employee) {
-//        this.id = id;
-//        this.typ = typ;
-//        this.marka = marka;
-//        this.serialNumber = serialNumber;
-//        this.operatingSystem = operatingSystem;
-//        this.ipAddress = ipAddress;
-//        this.employee = employee;
-//    }
-
-    public ComputerDTO(Type typ, String marka, String serialNumber, String operatingSystem, String ipAddress) {
+    public ComputerDTO(Long id, String typ, String marka, String serialNumber, String operatingSystem, String ipAddress, Employee employee) {
+        this.id = id;
         this.typ = typ;
         this.marka = marka;
         this.serialNumber = serialNumber;
@@ -47,7 +38,15 @@ public class ComputerDTO {
         this.id = id;
     }
 
-    public Type getTyp() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTyp() {
         return typ;
     }
 

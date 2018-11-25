@@ -1,5 +1,7 @@
 package pl.sda.ewidencja.domain.entity;
 
+import pl.sda.ewidencja.domain.dto.PhoneDTO;
+
 import javax.persistence.*;
 
 @Entity
@@ -20,6 +22,10 @@ public class Phone {
     }
 
     public Phone() {
+    }
+
+    public Phone(PhoneDTO phoneDTO_form) {
+
     }
 
     public Long getId() {
@@ -44,5 +50,9 @@ public class Phone {
 
     public void setSerialNumber(String serialNumber) {
         this.serialNumber = serialNumber;
+    }
+
+    public Employee getEmployee() {
+        return employee;
     }
 }
