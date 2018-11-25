@@ -22,6 +22,7 @@ public class ComputerService {
     public List<ComputerDTO> getAll() {
         return computerRepository.findAll().stream()
                 .map(com->new ComputerDTO(
+                        com.getId(),
                         com.getTyp(),com.getMarka(),
                         com.getSerialNumber(),
                         com.getOperatingSystem(),
@@ -32,6 +33,7 @@ public class ComputerService {
     public ComputerDTO getComputerBySerialNumber(String serialNumber) {
         return computerRepository.findBySerialNumber(serialNumber)
                 .map(com->new ComputerDTO(
+                        com.getId(),
                         com.getTyp(),com.getMarka(),
                         com.getSerialNumber(),
                         com.getOperatingSystem(),
