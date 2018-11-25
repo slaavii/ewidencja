@@ -26,7 +26,6 @@
 
     <c:forEach items="${computer}" var="computer">
         <tr>
-            <%--<td>${computer.id}</td>--%>
             <td>${computer.typ}</td>
             <td>${computer.marka}</td>
             <td>${computer.serialNumber}</td>
