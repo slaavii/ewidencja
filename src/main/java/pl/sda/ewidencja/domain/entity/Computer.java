@@ -27,7 +27,8 @@ public class Computer {
                 dto.getSerialNumber(),
                 dto.getOperatingSystem(),
                 dto.getIpAddress(),
-                new Employee(dto.getEmployee()));
+//                new Employee(dto.getEmployee()));
+                null);
     }
 
     public Computer(Long id, Type typ, String marka, String serialNumber, String operatingSystem, String ipAddress, Employee employee) {
