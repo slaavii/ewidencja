@@ -29,6 +29,14 @@ public class PrinterService {
                 .map(PrinterDTO::new)
                 .collect(Collectors.toList());
     }
+
+    public void addPrinter(PrinterDTO printerDTO_form) {
+        this.printerRepository.save(new Printer(printerDTO_form));
+    }
+
+    /*public void addComp(ComputerDTO computerDTO_form) {
+        this.computerRepository.save(new Computer(computerDTO_form));
+    }*/
 }
 
 

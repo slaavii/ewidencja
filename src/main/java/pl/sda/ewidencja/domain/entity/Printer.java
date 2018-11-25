@@ -1,5 +1,8 @@
 package pl.sda.ewidencja.domain.entity;
 
+import pl.sda.ewidencja.domain.dto.PrinterDTO;
+import pl.sda.ewidencja.domain.enums.Type;
+
 import javax.persistence.*;
 
 @Entity
@@ -21,6 +24,10 @@ public class Printer {
     }
 
     public Printer() {
+    }
+
+    public Printer(PrinterDTO dto) {
+        this(dto.getMarka(),dto.getSerialNumber(),null);
     }
 
     public Long getId() {

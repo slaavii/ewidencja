@@ -31,7 +31,7 @@ public class NetDevice {
         return id;
     }
 
-    public Enum getTyp() {
+    public DeviceType getTyp() {
         return typ;
     }
 

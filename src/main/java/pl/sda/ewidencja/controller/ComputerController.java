@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import pl.sda.ewidencja.domain.dto.ComputerDTO;
 import pl.sda.ewidencja.service.ComputerService;
-
 import java.util.List;
 
 @Controller
@@ -18,12 +18,18 @@ public class ComputerController {
         this.computerService = computerService;
     }
 
-    @GetMapping("/list")
+    @GetMapping("/listAll")
     @ResponseBody
     public List<ComputerDTO> list() {
         return computerService.getAll();
     }
 
+    @GetMapping("/list")
+    public ModelAndView computerList(){
+        ModelAndView mav = new ModelAndView("computer");
+        mav.addObject("computer",computerService.getAll());
+        return mav;
+    }
     @GetMapping(value = "computer/add")
     public String addComp(Model model) {
         model.addAttribute("newComp", new ComputerDTO());

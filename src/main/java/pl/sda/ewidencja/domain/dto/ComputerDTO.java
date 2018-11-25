@@ -4,6 +4,7 @@ import pl.sda.ewidencja.domain.entity.Computer;
 import pl.sda.ewidencja.domain.entity.Employee;
 
 public class ComputerDTO {
+    private Long id;
     private String typ;
     private String marka;
     private String serialNumber;
@@ -12,20 +13,29 @@ public class ComputerDTO {
     private Employee employee;
 
     public ComputerDTO(Computer computer) {
-        this(computer.getTyp().name(),computer.getMarka(),computer.getSerialNumber(),
+        this(computer.getId(),computer.getTyp().name(),computer.getMarka(),computer.getSerialNumber(),
                 computer.getOperatingSystem(),computer.getIpAddress(),computer.getEmployee());
     }
 
     public ComputerDTO() {
     }
 
-    public ComputerDTO(String typ, String marka, String serialNumber, String operatingSystem, String ipAddress, Employee employee) {
+    public ComputerDTO(Long id, String typ, String marka, String serialNumber, String operatingSystem, String ipAddress, Employee employee) {
+        this.id = id;
         this.typ = typ;
         this.marka = marka;
         this.serialNumber = serialNumber;
         this.operatingSystem = operatingSystem;
         this.ipAddress = ipAddress;
         this.employee = employee;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTyp() {

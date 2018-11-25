@@ -22,6 +22,10 @@ public class PrinterDTO {
         this.employee = employee;
     }
 
+    public PrinterDTO() {
+
+    }
+
     public String getMarka() {
         return marka;
     }
