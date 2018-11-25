@@ -21,6 +21,15 @@ public class ComputerDTO {
     public ComputerDTO() {
     }
 
+    public ComputerDTO(Long id, Type typ, String marka, String serialNumber, String operatingSystem, String ipAddress) {
+        this.id = id;
+        this.typ = typ;
+        this.marka = marka;
+        this.serialNumber = serialNumber;
+        this.operatingSystem = operatingSystem;
+        this.ipAddress = ipAddress;
+    }
+
     public ComputerDTO(Long id, Type typ, String marka, String serialNumber, String operatingSystem, String ipAddress, EmployeeDTO employee) {
         this.id = id;
         this.typ = typ;

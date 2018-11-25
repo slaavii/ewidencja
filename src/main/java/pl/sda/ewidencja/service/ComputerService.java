@@ -26,6 +26,21 @@ public class ComputerService {
                 .collect(Collectors.toList());
     }
 
+    public List<ComputerDTO> getOne(Long empId) {
+        Employee employeeRepositoryOne = employeeRepository.getOne(empId);
+        return employeeRepositoryOne
+                .getComputers()
+                .stream()
+                .map(computer -> new ComputerDTO(
+                        computer.getId(),
+                        computer.getTyp(),
+                        computer.getMarka(),
+                        computer.getSerialNumber(),
+                        computer.getOperatingSystem(),
+                        computer.getIpAddress()))
+                .collect(Collectors.toList());
+    }
+
     public ComputerDTO getComputerBySerialNumber(String serialNumber) {
         return computerRepository.findBySerialNumber(serialNumber)
                 .map(ComputerDTO::new)
@@ -39,6 +54,10 @@ public class ComputerService {
         Computer computer = new Computer(computerDTO_form);
         computer.setEmployee(employeeRepositoryById);
         computerRepository.save(computer);
+    }
+
+    public void deleteComp(Long compId) {
+        computerRepository.deleteById(compId);
     }
 
 }

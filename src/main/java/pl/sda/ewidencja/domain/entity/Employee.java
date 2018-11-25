@@ -1,5 +1,7 @@
 package pl.sda.ewidencja.domain.entity;
 
+import pl.sda.ewidencja.domain.dto.EmployeeDTO;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -19,7 +21,18 @@ public class Employee {
     private Set<Printer> printers;
     private String location;
 
-    public Employee(String name, String surname, String position, Set<Computer> computers, Set<Phone> phones, Set<Printer> printers, String location) {
+    public Employee(EmployeeDTO employeeDTO) {
+        this(employeeDTO.getId(),
+                employeeDTO.getName(),
+                employeeDTO.getSurname(),
+                employeeDTO.getPosition(),
+                employeeDTO.getComputers(),
+                employeeDTO.getPhones(),
+                employeeDTO.getPrinters(),
+                employeeDTO.getLocation());
+    }
+    public Employee(Long id,String name, String surname, String position, Set<Computer> computers, Set<Phone> phones, Set<Printer> printers, String location) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.position = position;
@@ -28,10 +41,8 @@ public class Employee {
         this.printers = printers;
         this.location = location;
     }
-
     public Employee() {
     }
-
     public Employee(String name, String surname, String position, String location) {
         this.name = name;
         this.surname = surname;

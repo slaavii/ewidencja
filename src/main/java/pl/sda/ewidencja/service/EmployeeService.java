@@ -23,8 +23,8 @@ public class EmployeeService {
                 .collect(Collectors.toList());
     }
 
-    public EmployeeDTO getBySurname(String surname) {
-        return employeeRepository.findBySurname(surname)
+    public EmployeeDTO getOne(Long id) {
+        return employeeRepository.findById(id)
                 .map(EmployeeDTO::new)
                 .orElse(null);
     }

@@ -1,9 +1,7 @@
 package pl.sda.ewidencja.domain.entity;
 
 import pl.sda.ewidencja.domain.dto.ComputerDTO;
-import pl.sda.ewidencja.domain.dto.EmployeeDTO;
 import pl.sda.ewidencja.domain.enums.Type;
-
 import javax.persistence.*;
 
 @Entity
@@ -22,7 +20,18 @@ public class Computer {
     @JoinColumn(name="employee_id")
     private Employee employee;
 
-    public Computer(Type typ, String marka, String serialNumber, String operatingSystem, String ipAddress, Employee employee) {
+    public Computer(ComputerDTO dto) {
+        this(dto.getId(),
+                dto.getTyp(),
+                dto.getMarka(),
+                dto.getSerialNumber(),
+                dto.getOperatingSystem(),
+                dto.getIpAddress(),
+                new Employee(dto.getEmployee()));
+    }
+
+    public Computer(Long id, Type typ, String marka, String serialNumber, String operatingSystem, String ipAddress, Employee employee) {
+        this.id = id;
         this.typ = typ;
         this.marka = marka;
         this.serialNumber = serialNumber;
@@ -32,9 +41,6 @@ public class Computer {
     }
 
     public Computer() {
-    }
-    public Computer(ComputerDTO dto) {
-        this((Type) dto.getTyp(),dto.getMarka(),dto.getSerialNumber(),dto.getOperatingSystem(),dto.getIpAddress(),null);
     }
 
     public Long getId() {

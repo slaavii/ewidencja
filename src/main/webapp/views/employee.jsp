@@ -11,7 +11,7 @@
 <table>
     <thead>
     <tr>
-        <td>ID</td>
+        <%--<td>ID</td>--%>
         <td>Imię</td>
         <td>Nazwisko</td>
         <td>Stanowisko</td>
@@ -31,11 +31,11 @@
 
     <c:forEach items="${employee}" var="employee">
         <tr>
-            <td>${employee.id}</td>
+            <%--<td>${employee.id}</td>--%>
             <td>${employee.name}</td>
             <td>${employee.surname}</td>
             <td>${employee.position}</td>
-            <td><a href="/computer/list">${employee.computers.size()}</a></td>
+            <td><a href="/computer/list/${employee.id}">${employee.computers.size()}</a></td>
             <td>${employee.phones}</td>
             <td>${employee.printers}</td>
             <td>${employee.location}</td>
