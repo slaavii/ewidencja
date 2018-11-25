@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import pl.sda.ewidencja.domain.dto.NetDeviceDTO;
 import pl.sda.ewidencja.domain.dto.PrinterDTO;
 import pl.sda.ewidencja.service.NetDeviceService;
@@ -11,7 +12,7 @@ import pl.sda.ewidencja.service.NetDeviceService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/network")
+@RequestMapping("/netdevice")
 public class NetDeviceController {
 
     private final NetDeviceService netDeviceService;
@@ -20,10 +21,17 @@ public class NetDeviceController {
         this.netDeviceService = netDeviceService;
     }
 
-    @GetMapping("/list")
+    @GetMapping("/listAll")
     @ResponseBody
     public List<NetDeviceDTO>list(){
         return netDeviceService.getAll();
+    }
+
+    @GetMapping("/list")
+    public ModelAndView netDeviceList() {
+        ModelAndView mav = new ModelAndView("netdevice");
+        mav.addObject("netdevice", netDeviceService.getAll());
+        return mav;
     }
 
     @GetMapping(value = "phone/add")

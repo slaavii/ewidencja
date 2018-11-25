@@ -16,30 +16,24 @@
         <td>Marka</td>
         <td>SerialNumber</td>
         <td>PortNumbers</td>
-        <td></td>
-        <td></td>
-        <td></td>
 
     </tr>
     </thead>
     <tbody>
 
-    <c:forEach items="${phone}" var="phone">
+    <c:forEach items="${netdevice}" var="netdevice">
         <tr>
-            <td>${phone.id}</td>
-            <td>${phone.marka}</td>
-            <td>${phone.employee}</td>
-            <td><a href="${pageContext.servletContext.contextPath}/printer/add/${phone.id}">Dodaj telefon</a></td>
-                <%--<td><a href="${pageContext.servletContext.contextPath}/phone/add${employee.id}">Dodaj telefon</a></td>
-                <td><a href="${pageContext.servletContext.contextPath}/printer/add${employee.id}">Dodaj drukarkę</a></td>
-                --%>
-            <td><a href="${pageContext.servletContext.contextPath}/printer/delete?phoneId=${employee.id}">Usuń telefon</a></td>
+            <td>${netdevice.id}</td>
+            <td>${netdevice.marka}</td>
+            <td>${netdevice.employee}</td>
+            <td><a href="${pageContext.servletContext.contextPath}/netdevice/add/${netdevice.id}">Dodaj telefon</a></td>
+            <td><a href="${pageContext.servletContext.contextPath}/netdevice/delete?phoneId=${netdevice.id}">Usuń NetDevice</a></td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
 
-<a href="${pageContext.servletContext.contextPath}/phoneAdd">Dodaj Telefon</a>
+<a href="${pageContext.servletContext.contextPath}/netDeviceAdd">Dodaj NetDevice</a>
 
 </body>
 </html>
