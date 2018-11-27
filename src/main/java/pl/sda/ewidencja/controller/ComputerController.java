@@ -65,9 +65,24 @@ public class ComputerController {
         return "redirect:/employee/list";
     }
 
-    @GetMapping(value = "/delete")
-    public String deleteComp(@RequestParam(name = "computerId") String id) {
-        computerService.deleteComp(Long.valueOf(id));
+    @PostMapping("/edited")
+    public String saveCompEdited(@ModelAttribute("newComputer") ComputerDTO form,
+                           BindingResult result, Model model) {
+        if (!result.hasErrors()) {
+            computerService.addComp(form, form.getEmployee().getId());
+        }
         return "redirect:/employee/list";
+    }
+    @GetMapping(value = "/delete")
+    public String deleteComp(@RequestParam(name = "computerId") Long id) {
+        computerService.deleteComp(id);
+        return "redirect:/employee/list";
+    }
+
+    @GetMapping(value = "/edit")
+    public ModelAndView editComp(@RequestParam(name = "computerId") Long compId) {
+        ModelAndView mav = new ModelAndView("computerEdit");
+        mav.addObject("newComputer", computerService.editOne(compId));
+        return mav;
     }
 }

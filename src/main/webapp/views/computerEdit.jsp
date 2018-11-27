@@ -6,11 +6,10 @@
     <link href="${pageContext.servletContext.contextPath}/css/app.css" rel="stylesheet"></head>
 <body>
 <jsp:include page="menu.jsp" />
-Użytkownik id: ${employeeId}<br>
 Dodaj/edytuj komputer:
 <form:form action="/computer/edited/${employeeId}" modelAttribute="newComputer" method="post">
 
-    <%--<form:hidden path="id"></form:hidden>--%>
+    <form:hidden path="id"></form:hidden>
     <form:label path="typ">Typ komputera:</form:label>
     <form:select path="typ">
         <form:options items="${typ}"/>
@@ -23,7 +22,7 @@ Dodaj/edytuj komputer:
     <form:input path="operatingSystem"/><br>
     <form:label path="ipAddress">Adres ip:</form:label>
     <form:input path="ipAddress"/><br>
-    <%--<form:hidden path="employee" value="${employeeId}"></form:hidden>--%>
+    <form:hidden path="employee"></form:hidden>
     <input type="submit" value="Zatwierdz"/>
 </form:form>
 </body>

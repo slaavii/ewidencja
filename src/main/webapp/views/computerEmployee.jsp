@@ -28,6 +28,7 @@
             <td>${computer.serialNumber}</td>
             <td>${computer.operatingSystem}</td>
             <td>${computer.ipAddress}</td>
+            <td><a href="${pageContext.servletContext.contextPath}/computer/edit?computerId=${computer.id}">Edytuj</a></td>
             <td><a href="${pageContext.servletContext.contextPath}/computer/delete?computerId=${computer.id}">Usuń komputer</a></td>
         </tr>
     </c:forEach>

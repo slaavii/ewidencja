@@ -38,7 +38,6 @@ public class ComputerDTO {
         this.operatingSystem = operatingSystem;
         this.ipAddress = ipAddress;
         this.employee = employee;
-
     }
 
     public Long getId() {
