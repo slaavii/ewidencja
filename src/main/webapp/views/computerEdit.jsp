@@ -10,6 +10,8 @@ Dodaj/edytuj komputer:
 <form:form action="/computer/edited/${employeeId}" modelAttribute="newComputer" method="post">
 
     <form:hidden path="id"></form:hidden>
+    <%--<form:label path="id">Id</form:label>--%>
+    <%--<form:input path="id"/><br>--%>
     <form:label path="typ">Typ komputera:</form:label>
     <form:select path="typ">
         <form:options items="${typ}"/>
@@ -22,7 +24,7 @@ Dodaj/edytuj komputer:
     <form:input path="operatingSystem"/><br>
     <form:label path="ipAddress">Adres ip:</form:label>
     <form:input path="ipAddress"/><br>
-    <form:hidden path="employee"></form:hidden>
+    <form:hidden path="employee.id"></form:hidden>
     <input type="submit" value="Zatwierdz"/>
 </form:form>
 </body>

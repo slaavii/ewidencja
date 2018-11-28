@@ -39,8 +39,5 @@
     </c:forEach>
     </tbody>
 </table>
-
-<a href="${pageContext.servletContext.contextPath}/computerAdd">Dodaj pozycję</a>
-
 </body>
 </html>

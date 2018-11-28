@@ -51,7 +51,9 @@ public class ComputerController {
 
     @GetMapping("/add/{id}")
     public String addCompOne(Model model, @PathVariable("id") Long employeeId) {
-        model.addAttribute("newComputer", new ComputerDTO());
+        ComputerDTO computerDTO = new ComputerDTO();
+        computerDTO.setId(employeeId);
+        model.addAttribute("newComputer", computerDTO);
         model.addAttribute("employeeId", employeeId);
         return "computerEdit";
     }
@@ -59,10 +61,8 @@ public class ComputerController {
     @PostMapping("/edited/{employeeId}")
     public String saveComp(@PathVariable("employeeId") Long employeeId, @ModelAttribute("newComputer") ComputerDTO form,
                            BindingResult result, Model model) {
-        if (!result.hasErrors()) {
             computerService.addComp(form, employeeId);
-        }
-        return "redirect:/employee/list";
+            return "redirect:/employee/list";
     }
 
     @PostMapping("/edited")
