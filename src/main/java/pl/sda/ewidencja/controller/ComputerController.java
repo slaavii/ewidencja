@@ -22,12 +22,6 @@ public class ComputerController {
         this.computerService = computerService;
     }
 
-    @GetMapping("/listAll")
-    @ResponseBody
-    public List<ComputerDTO> list() {
-        return computerService.getAll();
-    }
-
     @GetMapping("/list")
     public ModelAndView computerListAll() {
         ModelAndView mav = new ModelAndView("computer");
@@ -43,11 +37,11 @@ public class ComputerController {
         return mav;
     }
 
-    @GetMapping(value = "/computer/add")
-    public String addComp(Model model) {
-        model.addAttribute("newComp", new ComputerDTO());
-        return "addComputer";
-    }
+//    @GetMapping(value = "/computer/add")
+//    public String addComp(Model model) {
+//        model.addAttribute("newComp", new ComputerDTO());
+//        return "addComputer";
+//    }
 
     @GetMapping("/add/{id}")
     public String addCompOne(Model model, @PathVariable("id") Long employeeId) {
@@ -73,6 +67,7 @@ public class ComputerController {
         }
         return "redirect:/employee/list";
     }
+
     @GetMapping(value = "/delete")
     public String deleteComp(@RequestParam(name = "computerId") Long id) {
         computerService.deleteComp(id);

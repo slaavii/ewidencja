@@ -2,6 +2,7 @@ package pl.sda.ewidencja.service;
 
 import org.springframework.stereotype.Service;
 import pl.sda.ewidencja.domain.dto.ComputerDTO;
+import pl.sda.ewidencja.domain.dto.EmployeeDTO;
 import pl.sda.ewidencja.domain.dto.PrinterDTO;
 import pl.sda.ewidencja.domain.entity.Computer;
 import pl.sda.ewidencja.domain.entity.Employee;
@@ -26,16 +27,49 @@ public class PrinterService {
 
     public List<PrinterDTO> getAll(){
         return printerRepository.findAll().stream()
-                .map(PrinterDTO::new)
+                .map(printer -> new PrinterDTO(
+                        printer.getId(),
+                        printer.getMarka(),
+                        printer.getSerialNumber()))
                 .collect(Collectors.toList());
     }
 
-    public void addPrinter(PrinterDTO printerDTO_form) {
-        this.printerRepository.save(new Printer(printerDTO_form));
+    public List<PrinterDTO> getOne(Long empId) {
+        Employee employeeRepositoryOne = employeeRepository.getOne(empId);
+        return employeeRepositoryOne
+                .getPrinters()
+                .stream()
+                .map(printer -> new PrinterDTO(
+                        printer.getId(),
+                        printer.getMarka(),
+                        printer.getSerialNumber()))
+                .collect(Collectors.toList());
     }
 
-    /*public void addComp(ComputerDTO computerDTO_form) {
-        this.computerRepository.save(new Computer(computerDTO_form));
-    }*/
+    public void addPrinter(PrinterDTO printerDTO_form, Long employeeId) {
+        Employee employeeRepositoryById = employeeRepository.findById(employeeId).orElse(null);
+
+        Printer printer = new Printer(printerDTO_form);
+        printer.setEmployee(employeeRepositoryById);
+        Long existId = printer.getId();
+        if(printerRepository.existsById(existId)) {
+            deletePrinter(existId);
+        }
+        printerRepository.save(printer);
+    }
+    public void deletePrinter(Long compId) {
+        printerRepository.deleteById(compId);
+    }
+    public PrinterDTO editOne(Long printId) {
+        return printerRepository
+                .findById(printId)
+                .map(printer -> new PrinterDTO(
+                        printer.getId(),
+                        printer.getMarka(),
+                        printer.getSerialNumber(),
+                        new EmployeeDTO(printer.getEmployee())))
+                .orElse(null);
+    }
+
 }
 

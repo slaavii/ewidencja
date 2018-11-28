@@ -16,8 +16,8 @@ public class Printer {
     @JoinColumn(name="employee_id")
     private Employee employee;
 
-
-    public Printer(String marka, String serialNumber, Employee employee) {
+    public Printer(Long id, String marka, String serialNumber, Employee employee) {
+        this.id = id;
         this.marka = marka;
         this.serialNumber = serialNumber;
         this.employee = employee;
@@ -27,7 +27,7 @@ public class Printer {
     }
 
     public Printer(PrinterDTO dto) {
-        this(dto.getMarka(),dto.getSerialNumber(),null);
+        this(dto.getId(),dto.getMarka(),dto.getSerialNumber(),null);
     }
 
     public Long getId() {
@@ -56,5 +56,9 @@ public class Printer {
 
     public Employee getEmployee() {
         return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 }

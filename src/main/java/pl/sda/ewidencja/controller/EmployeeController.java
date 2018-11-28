@@ -21,8 +21,6 @@ public class EmployeeController {
         this.service = service;
     }
 
-    @GetMapping("/listAll")
-    @ResponseBody
     public List<EmployeeDTO> list() {
         return service.getAll();
     }

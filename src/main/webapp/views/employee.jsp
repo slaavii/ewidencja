@@ -36,12 +36,12 @@
             <td>${employee.surname}</td>
             <td>${employee.position}</td>
             <td><a href="/computer/list/${employee.id}">${employee.computers.size()}</a></td>
-            <td>${employee.phones}</td>
-            <td>${employee.printers}</td>
+            <td><a href="/phone/list/${employee.id}">${employee.phones.size()}</a></td>
+            <td><a href="/printer/list/${employee.id}">${employee.printers.size()}</a></td>
             <td>${employee.location}</td>
             <td><a href="${pageContext.servletContext.contextPath}/computer/add/${employee.id}">Dodaj komputer</a></td>
-            <td><a href="${pageContext.servletContext.contextPath}/phone/add${employee.id}">Dodaj telefon</a></td>
-            <td><a href="${pageContext.servletContext.contextPath}/printer/add${employee.id}">Dodaj drukarkę</a></td>
+            <td><a href="${pageContext.servletContext.contextPath}/phone/add/${employee.id}">Dodaj telefon</a></td>
+            <td><a href="${pageContext.servletContext.contextPath}/printer/add/${employee.id}">Dodaj drukarkę</a></td>
             <td><a href="${pageContext.servletContext.contextPath}/employee/delete?employeeId=${employee.id}">Usuń pracownika</a></td>
         </tr>
     </c:forEach>

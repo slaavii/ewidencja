@@ -9,6 +9,7 @@ import pl.sda.ewidencja.domain.dto.ComputerDTO;
 import pl.sda.ewidencja.domain.dto.PhoneDTO;
 import pl.sda.ewidencja.domain.dto.PrinterDTO;
 import pl.sda.ewidencja.service.ComputerService;
+import pl.sda.ewidencja.service.EmployeeService;
 import pl.sda.ewidencja.service.PrinterService;
 
 import java.util.List;
@@ -19,44 +20,62 @@ import java.util.Set;
 public class PrinterController {
 
     private final PrinterService printerService;
+    private final EmployeeService employeeService;
 
-    public PrinterController(PrinterService printerService) {
+    public PrinterController(PrinterService printerService, EmployeeService employeeService) {
         this.printerService = printerService;
-    }
-
-    @GetMapping("/listAll")
-    @ResponseBody
-    public List<PrinterDTO> list() {
-        return printerService.getAll();
+        this.employeeService = employeeService;
     }
 
     @GetMapping("/list")
     public ModelAndView printerList(){
         ModelAndView mav = new ModelAndView("printer");
-        mav.addObject("printer",printerService.getAll());
+        mav.addObject("printer", printerService.getAll());
         return mav;
     }
-    
 
-    @GetMapping(value = "printer/add")
-    public String addPhone(Model model) {
-        model.addAttribute("newPhone", new PhoneDTO());
-        return "addPrinter";
+    @GetMapping("/list/{employeeId}")
+    public ModelAndView printerListOne(@PathVariable("employeeId") Long empId) {
+        ModelAndView mav = new ModelAndView("printerEmployee");
+        mav.addObject("printer", printerService.getOne(empId));
+        mav.addObject("employee", employeeService.getOne(empId));
+        return mav;
     }
 
-    @GetMapping("/add")
-    public String addCost(Model model) {
-        model.addAttribute("newPrinter", new PrinterDTO());
+    @GetMapping("/add/{id}")
+    public String addPrinterOne(Model model, @PathVariable("id") Long employeeId) {
+        PrinterDTO printerDTO = new PrinterDTO();
+        printerDTO.setId(employeeId);
+        model.addAttribute("newPrinter", printerDTO);
+        model.addAttribute("employeeId", employeeId);
         return "printerEdit";
     }
 
-    @PostMapping("/add")
-    public String savePrinter(@ModelAttribute("newPrinter") PrinterDTO form,
-                              BindingResult result, Model model) {
-        if (!result.hasErrors()) {
-            printerService.addPrinter(form);
-        }
-        return "redirect:../employee";
+    @PostMapping("/edited/{employeeId}")
+    public String saveComp(@PathVariable("employeeId") Long employeeId, @ModelAttribute("newPrinter") PrinterDTO form,
+                           BindingResult result, Model model) {
+        printerService.addPrinter(form, employeeId);
+        return "redirect:/employee/list";
+    }
+
+    @PostMapping("/edited")
+    public String saveCompEdited(@ModelAttribute("newPrinter") PrinterDTO form,
+                                 BindingResult result, Model model) {
+            printerService.addPrinter(form, form.getEmployee().getId());
+        return "redirect:/employee/list";
+    }
+
+    @GetMapping(value = "/delete")
+    public String deleteComp(@RequestParam(name = "printerId") Long id) {
+        printerService.deletePrinter(id);
+        return "redirect:/employee/list";
+    }
+
+    @GetMapping(value = "/edit")
+    public ModelAndView editComp(@RequestParam(name = "printerId") Long compId) {
+        ModelAndView mav = new ModelAndView("printerEdit");
+        mav.addObject("newPrinter", printerService.editOne(compId));
+        return mav;
     }
 }
 
