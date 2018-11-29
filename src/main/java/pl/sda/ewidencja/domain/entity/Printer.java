@@ -12,7 +12,7 @@ public class Printer {
     private Long id;
     private String marka;
     private String serialNumber;
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="employee_id")
     private Employee employee;
 

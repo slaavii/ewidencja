@@ -13,11 +13,11 @@ public class Employee {
     private String name;
     private String surname;
     private String position;
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(cascade=CascadeType.REMOVE, fetch=FetchType.EAGER, mappedBy = "employee", orphanRemoval=true)
     private Set<Computer> computers;
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(cascade=CascadeType.REMOVE, fetch=FetchType.EAGER, mappedBy = "employee", orphanRemoval=true)
     private Set<Phone> phones;
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(cascade=CascadeType.REMOVE, fetch=FetchType.EAGER, mappedBy = "employee", orphanRemoval=true)
     private Set<Printer> printers;
     private String location;
 

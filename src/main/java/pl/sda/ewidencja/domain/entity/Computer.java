@@ -16,7 +16,7 @@ public class Computer {
     private String serialNumber;
     private String operatingSystem;
     private String ipAddress;
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="employee_id")
     private Employee employee;
 

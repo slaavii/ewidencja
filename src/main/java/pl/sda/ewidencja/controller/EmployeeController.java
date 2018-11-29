@@ -46,4 +46,9 @@ public class EmployeeController {
         }
         return "redirect:/employee/list";
     }
+    @GetMapping(value = "/delete")
+    public String deleteComp(@RequestParam(name = "employeeId") Long id) {
+        service.delete(id);
+        return "redirect:/employee/list";
+    }
 }
