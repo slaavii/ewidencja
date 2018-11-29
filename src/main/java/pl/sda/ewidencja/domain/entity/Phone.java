@@ -1,6 +1,7 @@
 package pl.sda.ewidencja.domain.entity;
 
 import pl.sda.ewidencja.domain.dto.PhoneDTO;
+import pl.sda.ewidencja.domain.dto.PrinterDTO;
 
 import javax.persistence.*;
 
@@ -15,7 +16,8 @@ public class Phone {
     @JoinColumn(name="employee_id")
     private Employee employee;
 
-    public Phone(String marka, String serialNumber, Employee employee) {
+    public Phone(Long id, String marka, String serialNumber, Employee employee) {
+        this.id = id;
         this.marka = marka;
         this.serialNumber = serialNumber;
         this.employee = employee;
@@ -24,8 +26,8 @@ public class Phone {
     public Phone() {
     }
 
-    public Phone(PhoneDTO phoneDTO_form) {
-
+    public Phone(PhoneDTO dto) {
+        this(dto.getId(),dto.getMarka(),dto.getSerialNumber(),null);
     }
 
     public Long getId() {
@@ -54,5 +56,9 @@ public class Phone {
 
     public Employee getEmployee() {
         return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 }
