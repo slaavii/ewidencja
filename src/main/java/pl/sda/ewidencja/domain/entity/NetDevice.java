@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 public class NetDevice {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @Enumerated(EnumType.STRING)
     private DeviceType typ;
