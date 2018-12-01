@@ -7,5 +7,7 @@
     <li><a href="${pageContext.servletContext.contextPath}/printer/list">Drukarki</a></li>
     <li><a href="${pageContext.servletContext.contextPath}/phone/list">Telefony</a></li>
     <li><a href="${pageContext.servletContext.contextPath}/netdevice/list">NetDevice</a></li>
+    <li><a href="${pageContext.servletContext.contextPath}/logout">Logout</a></li>
+
 
 </ul>
