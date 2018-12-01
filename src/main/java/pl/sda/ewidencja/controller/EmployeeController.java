@@ -1,6 +1,7 @@
 package pl.sda.ewidencja.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import pl.sda.ewidencja.domain.dto.EmployeeDTO;
 import pl.sda.ewidencja.service.EmployeeService;
 import java.util.List;
-
+@PreAuthorize("isAuthenticated()")
 @Controller
 @RequestMapping("/employee")
 public class EmployeeController {

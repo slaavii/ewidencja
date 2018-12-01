@@ -2,6 +2,7 @@
 package pl.sda.ewidencja.controller;
 
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,7 +14,7 @@ import pl.sda.ewidencja.service.EmployeeService;
 import pl.sda.ewidencja.service.PhoneService;
 
 import java.util.List;
-
+@PreAuthorize("isAuthenticated()")
 @Controller
 @RequestMapping("/phone")
 public class PhoneController {
