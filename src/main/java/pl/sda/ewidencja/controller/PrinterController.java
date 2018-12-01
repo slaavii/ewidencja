@@ -1,5 +1,6 @@
 package pl.sda.ewidencja.controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,7 +14,7 @@ import pl.sda.ewidencja.service.PrinterService;
 
 import java.util.List;
 import java.util.Set;
-
+@PreAuthorize("isAuthenticated()")
 @Controller
 @RequestMapping("/printer")
 public class PrinterController {

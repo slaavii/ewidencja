@@ -1,6 +1,8 @@
 package pl.sda.ewidencja.controller;
 
 import org.springframework.http.HttpMethod;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import pl.sda.ewidencja.domain.dto.ComputerDTO;
 import pl.sda.ewidencja.service.ComputerService;
 import java.util.List;
-
+@PreAuthorize("isAuthenticated()")
 @Controller
 @RequestMapping("/computer")
 public class ComputerController {
@@ -25,12 +27,14 @@ public class ComputerController {
         return computerService.getAll();
     }
 
+    //@PreAuthorize("isAuthenticated()")
     @RequestMapping(value = "/list",method = {RequestMethod.POST,RequestMethod.GET})
     public ModelAndView computerList(){
         ModelAndView mav = new ModelAndView("computer");
         mav.addObject("computer",computerService.getAll());
         return mav;
     }
+
     @GetMapping(value = "computer/add")
     public String addComp(Model model) {
         model.addAttribute("newComp", new ComputerDTO());
