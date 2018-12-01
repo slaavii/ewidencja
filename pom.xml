@@ -49,9 +49,24 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<version>8.5.30</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>4.2.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
 		</dependency>
 	</dependencies>
 

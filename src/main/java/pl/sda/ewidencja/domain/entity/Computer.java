@@ -1,26 +1,54 @@
 package pl.sda.ewidencja.domain.entity;
 
+import pl.sda.ewidencja.domain.dto.ComputerDTO;
+import pl.sda.ewidencja.domain.enums.Type;
 import javax.persistence.*;
 
 @Entity
 public class Computer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @Enumerated(EnumType.STRING)
-    private Enum typ;
+    private Type typ;
     private String marka;
     private String serialNumber;
     private String operatingSystem;
-    private String localization;
     private String ipAddress;
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="employee_id")
+    private Employee employee;
+
+    public Computer(ComputerDTO dto) {
+        this(dto.getId(),
+                dto.getTyp(),
+                dto.getMarka(),
+                dto.getSerialNumber(),
+                dto.getOperatingSystem(),
+                dto.getIpAddress(),
+//                new Employee(dto.getEmployee()));
+                null);
+    }
+
+    public Computer(Long id, Type typ, String marka, String serialNumber, String operatingSystem, String ipAddress, Employee employee) {
+        this.id = id;
+        this.typ = typ;
+        this.marka = marka;
+        this.serialNumber = serialNumber;
+        this.operatingSystem = operatingSystem;
+        this.ipAddress = ipAddress;
+        this.employee = employee;
+    }
+
+    public Computer() {
+    }
 
     public Long getId() {
         return id;
     }
 
-    public Enum getTyp() {
+    public Type getTyp() {
         return typ;
     }
 
@@ -36,10 +64,6 @@ public class Computer {
         return operatingSystem;
     }
 
-    public String getLocalization() {
-        return localization;
-    }
-
     public String getIpAddress() {
         return ipAddress;
     }
@@ -48,7 +72,7 @@ public class Computer {
         this.id = id;
     }
 
-    public void setTyp(Enum typ) {
+    public void setTyp(Type typ) {
         this.typ = typ;
     }
 
@@ -64,12 +88,16 @@ public class Computer {
         this.operatingSystem = operatingSystem;
     }
 
-    public void setLocalization(String localization) {
-        this.localization = localization;
-    }
-
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 }
 

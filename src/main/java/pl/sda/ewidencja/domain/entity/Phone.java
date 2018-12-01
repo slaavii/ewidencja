@@ -1,18 +1,34 @@
 package pl.sda.ewidencja.domain.entity;
 
+import pl.sda.ewidencja.domain.dto.PhoneDTO;
+import pl.sda.ewidencja.domain.dto.PrinterDTO;
+
 import javax.persistence.*;
 
 @Entity
 public class Phone {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @Enumerated(EnumType.STRING)
-    Enum typ;
-    String marka;
-    String serialNumber;
-    String localization;
-    String imei;
+    private String marka;
+    private String serialNumber;
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="employee_id")
+    private Employee employee;
+
+    public Phone(Long id, String marka, String serialNumber, Employee employee) {
+        this.id = id;
+        this.marka = marka;
+        this.serialNumber = serialNumber;
+        this.employee = employee;
+    }
+
+    public Phone() {
+    }
+
+    public Phone(PhoneDTO dto) {
+        this(dto.getId(),dto.getMarka(),dto.getSerialNumber(),null);
+    }
 
     public Long getId() {
         return id;
@@ -20,14 +36,6 @@ public class Phone {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Enum getTyp() {
-        return typ;
-    }
-
-    public void setTyp(Enum typ) {
-        this.typ = typ;
     }
 
     public String getMarka() {
@@ -46,19 +54,11 @@ public class Phone {
         this.serialNumber = serialNumber;
     }
 
-    public String getLocalization() {
-        return localization;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setLocalization(String localization) {
-        this.localization = localization;
-    }
-
-    public String getImei() {
-        return imei;
-    }
-
-    public void setImei(String imei) {
-        this.imei = imei;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 }

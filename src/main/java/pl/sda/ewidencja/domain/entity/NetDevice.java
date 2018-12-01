@@ -1,24 +1,35 @@
 package pl.sda.ewidencja.domain.entity;
 
+import pl.sda.ewidencja.domain.enums.DeviceType;
+
 import javax.persistence.*;
 
 @Entity
 public class NetDevice {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @Enumerated(EnumType.STRING)
-    private Enum typ;
+    private DeviceType typ;
     private String marka;
     private String serialNumber;
     private int numberOfPorts;
-    private String localization;
+
+    public NetDevice(DeviceType typ, String marka, String serialNumber, int numberOfPorts) {
+        this.typ = typ;
+        this.marka = marka;
+        this.serialNumber = serialNumber;
+        this.numberOfPorts = numberOfPorts;
+    }
+
+    public NetDevice() {
+    }
 
     public Long getId() {
         return id;
     }
 
-    public Enum getTyp() {
+    public DeviceType getTyp() {
         return typ;
     }
 
@@ -34,15 +45,15 @@ public class NetDevice {
         return numberOfPorts;
     }
 
-    public String getLocalization() {
+    /*public String getLocalization() {
         return localization;
-    }
+    }*/
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setTyp(Enum typ) {
+    public void setTyp(DeviceType typ) {
         this.typ = typ;
     }
 
@@ -58,7 +69,7 @@ public class NetDevice {
         this.numberOfPorts = numberOfPorts;
     }
 
-    public void setLocalization(String localization) {
+    /*public void setLocalization(String localization) {
         this.localization = localization;
-    }
+    }*/
 }
