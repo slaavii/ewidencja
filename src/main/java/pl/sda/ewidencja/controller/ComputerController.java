@@ -1,5 +1,6 @@
 package pl.sda.ewidencja.controller;
 
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,7 +25,7 @@ public class ComputerController {
         return computerService.getAll();
     }
 
-    @GetMapping("/list")
+    @RequestMapping(value = "/list",method = {RequestMethod.POST,RequestMethod.GET})
     public ModelAndView computerList(){
         ModelAndView mav = new ModelAndView("computer");
         mav.addObject("computer",computerService.getAll());

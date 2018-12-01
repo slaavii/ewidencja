@@ -3,6 +3,7 @@ package pl.sda.ewidencja.domain.entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "user_profile")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

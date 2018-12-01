@@ -9,14 +9,14 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 import pl.sda.ewidencja.domain.entity.MyUserPrincipal;
 import pl.sda.ewidencja.domain.entity.User;
 import pl.sda.ewidencja.repository.UserRepository;
 
+@Service
 public class MyUserDetailService implements UserDetailsService {
 
-    @Autowired
-    private MyUserDetailService userDetailService;
 
    /* @Override
     protected void configure(AuthenticationManagerBuilder auth)
@@ -24,7 +24,7 @@ public class MyUserDetailService implements UserDetailsService {
         auth.authenticationProvider(authenticationProvider());
     }*/
 
-    @Bean
+    /*@Bean
     public DaoAuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userDetailService);
@@ -35,7 +35,7 @@ public class MyUserDetailService implements UserDetailsService {
     @Bean
     public PasswordEncoder encoder(){
         return new BCryptPasswordEncoder(11);
-    }
+    }*/
 
 
     @Autowired
