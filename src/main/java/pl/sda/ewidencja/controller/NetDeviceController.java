@@ -14,6 +14,7 @@ import java.util.List;
 @PreAuthorize("isAuthenticated()")
 @Controller
 @RequestMapping("/netdevice")
+
 public class NetDeviceController {
 
     private final NetDeviceService netDeviceService;

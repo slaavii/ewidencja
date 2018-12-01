@@ -1,4 +1,4 @@
-package pl.sda.ewidencja.service;
+package pl.sda.ewidencja.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

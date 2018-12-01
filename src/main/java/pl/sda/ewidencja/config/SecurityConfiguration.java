@@ -16,6 +16,7 @@ import pl.sda.ewidencja.service.MyUserDetailService;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired

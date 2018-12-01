@@ -4,12 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "user_profile")
+
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-
-    
     @Column(nullable = false, unique = true)
     private String username;
     private String password;

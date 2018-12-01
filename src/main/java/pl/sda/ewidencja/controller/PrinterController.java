@@ -18,6 +18,7 @@ import java.util.Set;
 @PreAuthorize("isAuthenticated()")
 @Controller
 @RequestMapping("/printer")
+
 public class PrinterController {
 
     private final PrinterService printerService;
