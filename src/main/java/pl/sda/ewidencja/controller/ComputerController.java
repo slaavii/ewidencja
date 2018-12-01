@@ -26,7 +26,7 @@ public class ComputerController {
         this.computerService = computerService;
     }
 
-    @GetMapping("/list")
+    @RequestMapping(value = "/list",method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView computerListAll() {
         ModelAndView mav = new ModelAndView("computer");
         mav.addObject("computer", computerService.getAll());

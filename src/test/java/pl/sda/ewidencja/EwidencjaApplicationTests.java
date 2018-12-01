@@ -12,5 +12,4 @@ public class EwidencjaApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
-
 }
