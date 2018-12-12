@@ -20,7 +20,9 @@
         <td>Drukarka</td>
         <td>Lokalizacja</td>
         <td></td>
-        
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
     </thead>
     <tbody>
